@@ -1,53 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<input type="text" id="placa" placeholder="Ingrese la placa">
+<button onclick="consultar()">Consultar</button>
 
-<meta charset="UTF-8">
-
-<title>Consulta Vehículos</title>
-
-</head>
-
-<body>
-
-<h2>Consulta</h2>
-
-<input id="placa" placeholder="ABC123">
-
-<button onclick="buscar()">
-Consultar
-</button>
-
-<div id="resultado"></div>
+<pre id="resultado"></pre>
 
 <script>
+const URL = "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
 
-const URL="https://script.google.com/macros/s/AKfycbw6oOV60MiyhiWEfe80mlsR4jaf1PDxve69OG6i4CZ_rGpFyzBfCUYN-Lfi7RQ9IGab/exec";
+function consultar() {
+    const placa = document.getElementById("placa").value.trim().toUpperCase();
 
-async function buscar(){
-
-let placa=document.getElementById("placa").value;
-
-let respuesta=await fetch(URL+"?placa="+placa);
-
-let datos=await respuesta.json();
-
-if(datos.encontrado){
-
-document.getElementById("resultado").innerHTML=`
-<h3>${datos.placa}</h3>
-Estado: ${datos.estado}
-`;
-
-}else{
-
-document.getElementById("resultado").innerHTML="No encontrada";
-
+    fetch(URL + "?placa=" + encodeURIComponent(placa))
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("resultado").textContent =
+                JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+            document.getElementById("resultado").textContent =
+                "Error: " + err;
+        });
 }
-
-}
-
 </script>
-
-</body>
-</html>
