@@ -1,28 +1,32 @@
-function doGet() {
-  return HtmlService.createHtmlOutputFromFile("index")
-    .setTitle("Consulta de Vehículos");
-}
+function doGet(e) {
 
-function buscarPlaca(placa) {
+  var placa = (e.parameter.placa || "").toUpperCase().trim();
 
-  const hoja = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("datos");
-  const datos = hoja.getDataRange().getValues();
+  var hoja = SpreadsheetApp.openById("1qnJa--oirZYqcb55X2AZAgD1V9EablSpCN7uKrRSj0s")
+      .getSheetByName("datos");
 
-  placa = placa.toUpperCase().trim();
+  var datos = hoja.getDataRange().getValues();
 
-  for (let i = 1; i < datos.length; i++) {
+  for (var i = 1; i < datos.length; i++) {
 
     if (datos[i][0].toString().toUpperCase() == placa) {
 
-      return {
-        placa: datos[i][0],
-           estado: datos[i][1]
-      };
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          encontrado:true,
+          placa:datos[i][0],
+          estado:datos[i][1]
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
 
     }
 
   }
 
-  return null;
+  return ContentService
+    .createTextOutput(JSON.stringify({
+      encontrado:false
+    }))
+    .setMimeType(ContentService.MimeType.JSON);
 
 }
