@@ -1,49 +1,225 @@
-function doGet(e) {
+//======================================================
+// SECRETARÍA DE MOVILIDAD LA CEJA
+// script.js
+//======================================================
 
-  if (!e || !e.parameter || !e.parameter.placa) {
-    return ContentService
-      .createTextOutput(JSON.stringify({
-        error: "Debe enviar el parámetro placa"
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
+// URL de tu Apps Script
+const URL_API =
+"https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
 
-  var placa = e.parameter.placa.toUpperCase().trim();
+//======================================================
+// CONSULTAR PLACA
+//======================================================
 
-  // Obtener la hoja activa
-  var hoja = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getSheetByName("datos");
+async function consultarPlaca() {
 
-  if (!hoja) {
-    return ContentService
-      .createTextOutput(JSON.stringify({
-        error: "No existe la hoja 'datos'"
-      }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
+    const txtPlaca = document.getElementById("placa");
+    const resultado = document.getElementById("resultado");
+    const loader = document.getElementById("loader");
 
-  var datos = hoja.getDataRange().getValues();
+    let placa = txtPlaca.value.trim().toUpperCase();
 
-  for (var i = 1; i < datos.length; i++) {
-
-    if (String(datos[i][0]).toUpperCase().trim() === placa) {
-
-      return ContentService
-        .createTextOutput(JSON.stringify({
-          encontrado: true,
-          placa: datos[i][0],
-          estado: datos[i][1]
-        }))
-        .setMimeType(ContentService.MimeType.JSON);
+    if (placa === "") {
+        alert("Ingrese una placa.");
+        txtPlaca.focus();
+        return;
     }
-  }
 
-  return ContentService
-    .createTextOutput(JSON.stringify({
-      encontrado: false
-    }))
-    .setMimeType(ContentService.MimeType.JSON);
+    resultado.style.display = "none";
+    loader.style.display = "block";
+
+    try {
+
+        const respuesta = await fetch(
+            URL_API + "?placa=" + encodeURIComponent(placa)
+        );
+
+        const datos = await respuesta.json();
+
+        loader.style.display = "none";
+
+        if (datos.encontrado) {
+
+            resultado.innerHTML = `
+
+            <div class="card shadow">
+
+                <div class="card-header bg-success text-white">
+
+                    <h4>Información del Vehículo</h4>
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th width="40%">Placa</th>
+                            <td>${datos.placa}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Estado</th>
+                            <td>
+                                <span class="badge bg-success">
+                                    ${datos.estado}
+                                </span>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            `;
+
+        } else {
+
+            resultado.innerHTML = `
+
+            <div class="alert alert-danger">
+
+                No existe información para la placa
+                <strong>${placa}</strong>
+
+            </div>
+
+            `;
+
+        }
+
+        resultado.style.display = "block";
+
+    }
+
+    catch (error) {
+
+        loader.style.display = "none";
+
+        resultado.innerHTML = `
+
+        <div class="alert alert-warning">
+
+            Error de conexión.<br><br>
+
+            ${error}
+
+        </div>
+
+        `;
+
+        resultado.style.display = "block";
+
+    }
+
 }
+
+//======================================================
+// CONSULTAR AL PRESIONAR ENTER
+//======================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const txt = document.getElementById("placa");
+
+    if (txt) {
+
+        txt.addEventListener("keypress", function (e) {
+
+            if (e.key === "Enter") {
+
+                consultarPlaca();
+
+            }
+
+        });
+
+    }
+
+});
+
+//======================================================
+// LIMPIAR
+//======================================================
+
+function limpiarConsulta() {
+
+    document.getElementById("placa").value = "";
+
+    document.getElementById("resultado").style.display = "none";
+
+    document.getElementById("placa").focus();
+
+}
+
+//======================================================
+// MENSAJE DE BIENVENIDA
+//======================================================
+
+console.log("Portal Secretaría de Movilidad La Ceja");
+
+//======================================================
+// FECHA ACTUAL
+//======================================================
+
+window.onload = function () {
+
+    const fecha = document.getElementById("fecha");
+
+    if (fecha) {
+
+        const hoy = new Date();
+
+        fecha.innerHTML =
+            hoy.toLocaleDateString("es-CO", {
+
+                weekday: "long",
+
+                year: "numeric",
+
+                month: "long",
+
+                day: "numeric"
+
+            });
+
+    }
+
+};
+
+//======================================================
+// BOTÓN VOLVER ARRIBA
+//======================================================
+
+window.onscroll = function () {
+
+    let boton = document.getElementById("btnTop");
+
+    if (!boton) return;
+
+    if (document.documentElement.scrollTop > 300) {
+
+        boton.style.display = "block";
+
+    } else {
+
+        boton.style.display = "none";
+
+    }
+
+};
+
+function volverArriba() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
