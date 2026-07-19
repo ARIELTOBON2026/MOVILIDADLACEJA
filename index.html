@@ -1,23 +1,260 @@
-<input type="text" id="placa" placeholder="Ingrese la placa">
-<button onclick="consultar()">Consultar</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
-<pre id="resultado"></pre>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
-const URL = "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
+<title>Secretaría de Movilidad La Ceja</title>
 
-function consultar() {
-    const placa = document.getElementById("placa").value.trim().toUpperCase();
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-    fetch(URL + "?placa=" + encodeURIComponent(placa))
-        .then(r => r.json())
-        .then(data => {
-            document.getElementById("resultado").textContent =
-                JSON.stringify(data, null, 2);
-        })
-        .catch(err => {
-            document.getElementById("resultado").textContent =
-                "Error: " + err;
-        });
+<style>
+
+body{
+    background:#f4f7fb;
+    font-family:Arial,Helvetica,sans-serif;
 }
-</script>
+
+header{
+    background:linear-gradient(90deg,#0d6efd,#198754);
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+header h1{
+    font-weight:bold;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,.30);
+}
+
+.card img{
+    height:220px;
+    object-fit:cover;
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    color:#003366;
+}
+
+.btn-consultar{
+
+    background:#0d6efd;
+    color:white;
+    font-weight:bold;
+    width:100%;
+}
+
+footer{
+
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
+    margin-top:50px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>SECRETARÍA DE MOVILIDAD LA CEJA</h1>
+
+<p>Servicios y Trámites para la Ciudadanía</p>
+
+</header>
+
+<div class="container mt-5">
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/carros.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+🚗 CARROS Y MOTOS
+
+</h4>
+
+<a href="tramites.html" class="btn btn-primary w-100">
+
+Ingresar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/licencia.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+🪪 LICENCIA DE CONDUCCIÓN
+
+</h4>
+
+<a href="licencias.html" class="btn btn-success w-100">
+
+Ingresar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/otros.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+📋 OTROS TRÁMITES
+
+</h4>
+
+<a href="otros.html" class="btn btn-warning w-100">
+
+Ingresar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/radicados.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+📂 RADICADOS
+
+</h4>
+
+<a href="radicados.html" class="btn btn-secondary w-100">
+
+Ingresar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/placa.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+🔍 CONSULTA DE PLACAS
+
+</h4>
+
+<a href="consulta.html" class="btn btn-danger w-100">
+
+Consultar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<img src="img/descargas.jpg">
+
+<div class="card-body">
+
+<h4 class="card-title">
+
+⬇️ DESCARGAS
+
+</h4>
+
+<a href="descargas.html" class="btn btn-info w-100">
+
+Descargar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+Secretaría de Movilidad La Ceja © 2026
+
+</footer>
+
+</body>
+
+</html>
