@@ -223,3 +223,82 @@ function volverArriba() {
     });
 
 }
+function consultarRadicado(){
+
+    let placa = document
+        .getElementById("placaRadicado")
+        .value
+        .toUpperCase()
+        .trim();
+
+    if(placa==""){
+        alert("Ingrese una placa.");
+        return;
+    }
+
+    document.getElementById("loader").style.display="block";
+
+    fetch(URL_APPS_SCRIPT + "?placa=" + encodeURIComponent(placa))
+
+    .then(r=>r.json())
+
+    .then(data=>{
+
+        document.getElementById("loader").style.display="none";
+
+        let div=document.getElementById("resultadoRadicado");
+
+        if(data.error){
+
+            div.innerHTML=`
+                <div class="alert alert-danger">
+                    ${data.error}
+                </div>
+            `;
+
+            return;
+        }
+
+        div.innerHTML=`
+
+        <div class="card border-success shadow">
+
+            <div class="card-header bg-success text-white">
+
+                <h5 class="mb-0">
+                    Estado del Radicado
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-bordered">
+
+                    <tr>
+
+                        <th>Placa</th>
+
+                        <td>${data.placa}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <th>Estado</th>
+
+                        <td><strong>${data.estado}</strong></td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
