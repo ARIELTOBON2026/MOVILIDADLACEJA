@@ -6,142 +6,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Trámites Vehículos - Secretaría de Movilidad La Ceja</title>
+<title>Trámites Motos y Carros</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-body{
-    background:#f4f7fb;
-    font-family:Arial,Helvetica,sans-serif;
-}
-
-header{
-    background:linear-gradient(90deg,#0056b3,#009966);
-    color:white;
-    text-align:center;
-    padding:30px;
-}
-
-.banner{
-    width:50%; /* Reducido de 70% a 50% */
-    max-height:200px; /* Reducido de 300px a 200px */
-    object-fit:cover;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,.25);
-}
-
-.btn-tramite{
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    width:100%;
-    height:65px; /* Reducido de 90px a 65px */
-
-    background:#003366;
-    color:white;
-
-    text-decoration:none;
-
-    text-align:center;
-
-    font-weight:bold;
-
-    border-radius:8px; /* Reducido de 10px a 8px */
-
-    padding:8px; /* Reducido de 10px a 8px */
-
-    transition:.3s;
-
-    box-shadow:0 4px 10px rgba(0,0,0,.15); /* Sombra más suave */
-
-    text-transform:uppercase;
-    font-size:0.85rem; /* Texto más pequeño */
-
-}
-
-.btn-tramite:hover{
-
-    background:#0d6efd;
-
-    color:white;
-
-    transform:translateY(-3px); /* Menos elevación al hover */
-
-}
-
-footer{
-
-    background:#003366;
-
-    color:white;
-
-    text-align:center;
-
-    padding:20px;
-
-    margin-top:50px;
-
-}
-
-</style>
 
 </head>
 
 <body>
 
-<header>
-
-<h1>TRÁMITES MOTOS Y CARROS</h1>
-
-<p>Secretaría de Movilidad La Ceja</p>
-
+<header class="titulo py-3">
+    <h1>TRÁMITES MOTOS Y CARROS</h1>
 </header>
 
-<div class="container mt-4">
+<div class="container">
 
-<div class="text-center mb-4"> <!-- Reducido de mb-5 a mb-4 -->
+    <!-- Imagen más pequeña -->
+    <div class="text-center mb-4">
+        <img src="img/carros.jpg" class="banner img-fluid" alt="Motos y carros">
+    </div>
 
-<img src="img/carros.jpg" class="banner img-fluid" alt="Vehículos">
+    <div class="row g-3">
+
+        <!-- COLUMNA 1 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">MATRÍCULA INICIAL</button>
+            <button class="btn btn-primary tramite-btn">MATRÍCULA INICIAL CON PRENDA</button>
+        </div>
+
+        <!-- COLUMNA 2 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">TRASPASO</button>
+            <button class="btn btn-primary tramite-btn">TRASPASO MÁS INSCRIPCIÓN DE PRENDA</button>
+            <button class="btn btn-primary tramite-btn">TRASPASO MÁS LEVANTAMIENTO DE PRENDA</button>
+            <button class="btn btn-primary tramite-btn">LEVANTAMIENTO DE PRENDA</button>
+        </div>
+
+        <!-- COLUMNA 3 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">RADICACIÓN CUENTA</button>
+            <button class="btn btn-primary tramite-btn">TRASLADO DE CUENTA</button>
+        </div>
+
+        <!-- COLUMNA 4 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">CAMBIO CARROCERÍA NUEVA O USADA</button>
+            <button class="btn btn-primary tramite-btn">CAMBIO DE MOTOR NUEVO</button>
+            <button class="btn btn-primary tramite-btn">CAMBIO DE COLOR</button>
+            <button class="btn btn-primary tramite-btn">REGRABACIÓN CHASIS, SERIE, MOTOR Y VIN</button>
+        </div>
+
+        <!-- COLUMNA 5 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">DUPLICADO LICENCIA TRÁNSITO</button>
+            <button class="btn btn-primary tramite-btn">DUPLICADO DE PLACAS</button>
+        </div>
+
+        <!-- COLUMNA 6 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <button class="btn btn-primary tramite-btn">CANCELACIÓN DESINTEGRACIÓN PÉRDIDA TOTAL</button>
+            <button class="btn btn-primary tramite-btn">CANCELACIÓN POR HURTO</button>
+            <button class="btn btn-primary tramite-btn">REMATRÍCULA</button>
+            <button class="btn btn-primary tramite-btn">TRASPASO A FAVOR DEL INTERESADO</button>
+        </div>
+
+    </div>
 
 </div>
 
-<div class="row g-2"> <!-- Reducido de g-3 a g-2 para menos espacio entre botones -->
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">MATRÍCULA INICIAL</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">MATRÍCULA INICIAL CON PRENDA</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">TRASPASO</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">TRASPASO MÁS INSCRIPCIÓN DE PRENDA</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">TRASPASO MÁS LEVANTAMIENTO DE PRENDA</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">LEVANTAMIENTO DE PRENDA</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">RADICACIÓN DE CUENTA</a>
-</div>
-
-<div class="col-lg-3 col-md-4 col-sm-6">
-<a href="#" class="btn-tramite">TRASLADO DE CU
+</body>
+</html>
