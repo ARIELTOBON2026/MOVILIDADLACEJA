@@ -6,7 +6,8 @@
 // URL de tu Apps Script
 const URL_API =
 "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
-
+const URL_RADICADOS = 
+"https://script.google.com/macros/s/AKfycbzkh_WTPnfcNdTLKrAkomzf5LB2UOGcnPNJ8umje7MPwIaIjXLKWf2lyH5GB2gyl9L1dA/exec";
 //======================================================
 // CONSULTAR PLACA
 //======================================================
@@ -300,5 +301,126 @@ function consultarRadicado(){
         `;
 
     });
+
+}
+async function consultarRadicado() {
+
+    const placa = document
+        .getElementById("placaRadicado")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const resultado = document.getElementById("resultadoRadicado");
+
+    if (placa === "") {
+
+        resultado.innerHTML = `
+        <div class="alert alert-warning">
+            Ingrese una placa.
+        </div>`;
+
+        return;
+    }
+
+    resultado.innerHTML = `
+    <div class="text-center">
+
+        <div class="spinner-border text-success"></div>
+
+        <p class="mt-2">
+            Consultando...
+        </p>
+
+    </div>`;
+
+    try {
+
+        const respuesta = await fetch(
+            URL_RADICADOS + "?placa=" + encodeURIComponent(placa)
+        );
+
+        const datos = await respuesta.json();
+
+        if (datos.error) {
+
+            resultado.innerHTML = `
+            <div class="alert alert-danger">
+                ${datos.error}
+            </div>`;
+
+            return;
+        }
+
+        if (!datos.encontrado) {
+
+            resultado.innerHTML = `
+            <div class="alert alert-danger">
+
+                <i class="bi bi-x-circle-fill"></i>
+
+                No existen radicados para la placa <b>${placa}</b>
+
+            </div>`;
+
+            return;
+        }
+
+        resultado.innerHTML = `
+
+        <div class="card border-success shadow">
+
+            <div class="card-header bg-success text-white">
+
+                <h5 class="mb-0">
+
+                    <i class="bi bi-folder-check"></i>
+
+                    Resultado de la Consulta
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th width="180">Placa</th>
+                        <td>${datos.placa}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Estado</th>
+                        <td>
+
+                            <span class="badge bg-success fs-6">
+
+                                ${datos.estado}
+
+                            </span>
+
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>`;
+
+    } catch (error) {
+
+        console.error(error);
+
+        resultado.innerHTML = `
+        <div class="alert alert-danger">
+
+            Error al conectar con el servidor.
+
+        </div>`;
+
+    }
 
 }
