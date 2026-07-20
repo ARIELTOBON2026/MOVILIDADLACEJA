@@ -9,8 +9,50 @@
     box-sizing:border-box;
 }
 
-body{
 
+body{
+    background:#f5f7fa;
+}
+
+.titulo{
+    background:#0d6efd;
+    color:#fff;
+    text-align:center;
+}
+
+.titulo h1{
+    margin:0;
+    font-weight:bold;
+    font-size:2rem;
+}
+
+/* Imagen del encabezado más pequeña */
+.banner{
+    max-width:700px;
+    width:100%;
+    border-radius:10px;
+}
+
+/* Botones iguales */
+.tramite-btn{
+    width:100%;
+    height:90px;
+    margin-bottom:12px;
+    white-space:normal;
+    font-weight:bold;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,.15);
+    transition:.2s;
+}
+
+.tramite-btn:hover{
+    transform:translateY(-3px);
+}
     background:#f5f7fa;
     font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
     color:#333;
