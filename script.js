@@ -39,58 +39,100 @@ async function consultarPlaca() {
 
         loader.style.display = "none";
 
-        if (datos.encontrado) {
+     if (datos.encontrado) {
 
-            resultado.innerHTML = `
+    resultado.innerHTML = `
 
-            <div class="card shadow">
+    <div class="card shadow-lg border-success">
 
-                <div class="card-header bg-success text-white">
+        <div class="card-header bg-success text-white text-center py-3">
 
-                    <h4>Información del Vehículo</h4>
+            <h2 class="mb-0 fw-bold">
+                🚗 INFORMACIÓN DEL VEHÍCULO
+            </h2>
 
-                </div>
+        </div>
 
-                <div class="card-body" style="font-size:1.35rem;">
+        <div class="card-body">
 
-                    <table class="table table-bordered">
+            <table class="table table-bordered table-hover align-middle mb-0">
 
-                        <tr>
-                            <th width="40%">Placa</th>
-                            <td>${datos.placa}</td>
-                        </tr>
+                <tr>
 
-                        <tr>
-                            <th>Estado</th>
-                            <td>
-                                <span class="badge bg-success">
-                                    ${datos.estado}
-                                </span>
-                            </td>
-                        </tr>
+                    <th style="
+                        width:40%;
+                        font-size:1.5rem;
+                        background:#f8f9fa;
+                        text-align:center;
+                        vertical-align:middle;
+                    ">
+                        PLACA
+                    </th>
 
-                    </table>
+                    <td style="
+                        font-size:2.3rem;
+                        font-weight:bold;
+                        color:#0d6efd;
+                        text-align:center;
+                        letter-spacing:2px;
+                    ">
+                        ${datos.placa}
+                    </td>
 
-                </div>
+                </tr>
 
-            </div>
+                <tr>
 
-            `;
+                    <th style="
+                        font-size:1.5rem;
+                        background:#f8f9fa;
+                        text-align:center;
+                        vertical-align:middle;
+                    ">
+                        ESTADO
+                    </th>
 
-        } else {
+                    <td class="text-center">
 
-            resultado.innerHTML = `
+                        <span class="badge bg-success"
+                              style="
+                                font-size:1.6rem;
+                                padding:14px 28px;
+                                border-radius:12px;
+                              ">
 
-            <div class="alert alert-danger">
+                            ${datos.estado}
 
-                No existe información para la placa
-                <strong>${placa}</strong>
+                        </span>
 
-            </div>
+                    </td>
 
-            `;
+                </tr>
 
-        }
+            </table>
+
+        </div>
+
+    </div>
+
+    `;
+
+} else {
+
+    resultado.innerHTML = `
+
+    <div class="alert alert-danger text-center fs-4">
+
+        <strong>
+            No existe información para la placa
+            ${placa}
+        </strong>
+
+    </div>
+
+    `;
+
+}
 
         resultado.style.display = "block";
 
