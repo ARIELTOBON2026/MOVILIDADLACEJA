@@ -25,6 +25,11 @@ body{
     font-weight:bold;
     font-size:2rem;
 }
+.alert-placa {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
 
 /* Imagen del encabezado más pequeña */
 .banner{
