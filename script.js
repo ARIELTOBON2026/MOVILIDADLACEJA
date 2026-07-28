@@ -51,7 +51,7 @@ async function consultarPlaca() {
 
                 </div>
 
-                <div class="card-body">
+                <div class="card-body"> style="font-size:1.35rem;">
 
                     <table class="table table-bordered">
 
