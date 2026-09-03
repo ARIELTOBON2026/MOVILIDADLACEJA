@@ -5,7 +5,7 @@
 
 // URLs de las implementaciones de Apps Script
 //const URL_API = "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
-const URL_RADICADOS = "https://script.google.com/macros/s/AKfycbxrz319EKrgivXU4OLpWKGx1lgIdcCcw_ZMOaSmxdL805PR4FceDrq4ACUbiMRWXWgN/exec";
+const URL_RADICADOS = "https://script.google.com/macros/s/AKfycbzWsL1UdeihjKW3K6Ii_ZboDs-313nfj3H10rXYViK36gemm2YNonZRPVROs0WGL6sF/exec";
 
 //======================================================
 // 1. CONSULTAR VEHÍCULO (Placa)
