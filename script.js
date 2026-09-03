@@ -1,22 +1,23 @@
 //======================================================
 // SECRETARÍA DE MOVILIDAD LA CEJA
-// script.js (Versión Optimizada)
+// script.js (Versión Corregida)
 //======================================================
 
-// URLs de las implementaciones de Apps Script
-//const URL_API = "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
-const URL_RADICADOS = "https://script.google.com/macros/s/AKfycbwzCz8e9glA1h6xJXm342Ux0-r6bBkCp30QZFS08xLIkBFsOp6UpS2SAc0u0_7clTwx/exec";
+// URL ÚNICA del Web App de Google Apps Script
+const URL_BASE = "https://script.google.com/macros/s/AKfycbwzCz8e9glA1h6xJXm342Ux0-r6bBkCp30QZFS08xLIkBFsOp6UpS2SAc0u0_7clTwx/exec";
 
 //======================================================
-// 1. CONSULTAR VEHÍCULO (Placa)
+// 1. CONSULTAR VEHÍCULO (Hoja: DATOS)
 //======================================================
 async function consultarPlaca() {
     const txtPlaca = document.getElementById("placa");
     const resultado = document.getElementById("resultado");
     const loader = document.getElementById("loader");
 
-    // Validación de seguridad por si la función se llama en la página equivocada
-    if (!txtPlaca || !resultado) return; 
+    if (!txtPlaca || !resultado) {
+        console.error("Elementos no encontrados. ¿Estás en consulta.html?");
+        return;
+    }
 
     let placa = txtPlaca.value.trim().toUpperCase();
 
@@ -30,10 +31,17 @@ async function consultarPlaca() {
     if (loader) loader.style.display = "block";
 
     try {
-        const respuesta = await fetch(`${URL_API}?placa=${encodeURIComponent(placa)}`);
+        // Busca en la hoja "datos"
+        const respuesta = await fetch(`${URL_BASE}?placa=${encodeURIComponent(placa)}&tipo=datos`);
         const datos = await respuesta.json();
 
         if (loader) loader.style.display = "none";
+
+        if (datos.error) {
+            resultado.innerHTML = `<div class="alert alert-danger text-center">❌ ${datos.error}</div>`;
+            resultado.style.display = "block";
+            return;
+        }
 
         if (datos.encontrado) {
             resultado.innerHTML = `
@@ -72,13 +80,16 @@ async function consultarPlaca() {
 }
 
 //======================================================
-// 2. CONSULTAR RADICADO
+// 2. CONSULTAR RADICADO (Hoja: RADICADOS)
 //======================================================
 async function consultarRadicado() {
     const txtPlacaRadicado = document.getElementById("placaRadicado");
     const resultado = document.getElementById("resultadoRadicado");
 
-    if (!txtPlacaRadicado || !resultado) return;
+    if (!txtPlacaRadicado || !resultado) {
+        console.error("Elementos no encontrados. ¿Estás en radicados.html?");
+        return;
+    }
 
     const placa = txtPlacaRadicado.value.trim().toUpperCase();
 
@@ -97,7 +108,8 @@ async function consultarRadicado() {
         </div>`;
 
     try {
-        const respuesta = await fetch(`${URL_RADICADOS}?placa=${encodeURIComponent(placa)}&tipo=radicados`);
+        // Busca en la hoja "radicados"
+        const respuesta = await fetch(`${URL_BASE}?placa=${encodeURIComponent(placa)}&tipo=radicados`);
         const datos = await respuesta.json();
 
         if (datos.error) {
@@ -142,14 +154,14 @@ async function consultarRadicado() {
 }
 
 //======================================================
-// 3. EVENTOS GLOBALES AL CARGAR LA PÁGINA
+// 3. EVENTOS GLOBALES
 //======================================================
 document.addEventListener("DOMContentLoaded", () => {
     
-    // A. Permitir consultar Vehículo al presionar ENTER
+    // A. Consultar Vehículo con ENTER
     const txtVehiculo = document.getElementById("placa");
     if (txtVehiculo) {
-        txtVehiculo.addEventListener("keypress", (e) => {
+        txtVehiculo.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
                 consultarPlaca();
@@ -157,10 +169,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // B. Permitir consultar Radicado al presionar ENTER (NUEVO)
+    // B. Consultar Radicado con ENTER
     const txtRadicado = document.getElementById("placaRadicado");
     if (txtRadicado) {
-        txtRadicado.addEventListener("keypress", (e) => {
+        txtRadicado.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
                 consultarRadicado();
@@ -168,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // C. Fecha actual en el footer
+    // C. Fecha actual
     const fecha = document.getElementById("fecha");
     if (fecha) {
         const hoy = new Date();
@@ -179,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //======================================================
-// 4. FUNCIONES DE LIMPIEZA (Separadas para evitar errores)
+// 4. FUNCIONES DE LIMPIEZA
 //======================================================
 function limpiarConsultaVehiculo() {
     const txt = document.getElementById("placa");
@@ -196,7 +208,7 @@ function limpiarConsultaRadicado() {
 }
 
 //======================================================
-// 5. UTILIDADES (Scroll y Consola)
+// 5. UTILIDADES
 //======================================================
 console.log("✅ Portal Secretaría de Movilidad La Ceja - Cargado correctamente");
 
