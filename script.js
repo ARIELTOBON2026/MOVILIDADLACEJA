@@ -1,22 +1,22 @@
 //======================================================
 // SECRETARÍA DE MOVILIDAD LA CEJA
-// script.js
+// script.js (Versión Optimizada)
 //======================================================
 
-// URL de tu Apps Script
-const URL_API =
-"https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
-const URL_RADICADOS = 
-"https://script.google.com/macros/s/AKfycbzkh_WTPnfcNdTLKrAkomzf5LB2UOGcnPNJ8umje7MPwIaIjXLKWf2lyH5GB2gyl9L1dA/exec";
-//======================================================
-// CONSULTAR PLACA
-//======================================================
+// URLs de las implementaciones de Apps Script
+const URL_API = "https://script.google.com/macros/s/AKfycbx4spIQssVnd5p3j5B5DGiB4EV86eIlfVLSX6xo5yq8MjdH0nhCWNoSRfA9uX-nvRta/exec";
+const URL_RADICADOS = "https://script.google.com/macros/s/AKfycbxrz319EKrgivXU4OLpWKGx1lgIdcCcw_ZMOaSmxdL805PR4FceDrq4ACUbiMRWXWgN/exec";
 
+//======================================================
+// 1. CONSULTAR VEHÍCULO (Placa)
+//======================================================
 async function consultarPlaca() {
-
     const txtPlaca = document.getElementById("placa");
     const resultado = document.getElementById("resultado");
     const loader = document.getElementById("loader");
+
+    // Validación de seguridad por si la función se llama en la página equivocada
+    if (!txtPlaca || !resultado) return; 
 
     let placa = txtPlaca.value.trim().toUpperCase();
 
@@ -27,363 +27,185 @@ async function consultarPlaca() {
     }
 
     resultado.style.display = "none";
-    loader.style.display = "block";
+    if (loader) loader.style.display = "block";
 
     try {
-
-        const respuesta = await fetch(
-            URL_API + "?placa=" + encodeURIComponent(placa)
-        );
-
+        const respuesta = await fetch(`${URL_API}?placa=${encodeURIComponent(placa)}`);
         const datos = await respuesta.json();
 
-        loader.style.display = "none";
+        if (loader) loader.style.display = "none";
 
-     if (datos.encontrado) {
-
-    resultado.innerHTML = `
-
-    <div class="card shadow-lg border-success">
-
-        <div class="card-header bg-success text-white text-center py-3">
-
-            <h2 class="mb-0 fw-bold">
-                🚗 INFORMACIÓN DEL VEHÍCULO
-            </h2>
-
-        </div>
-
-        <div class="card-body">
-
-            <table class="table table-bordered table-hover align-middle mb-0">
-
-                <tr>
-
-                    <th style="
-                        width:40%;
-                        font-size:1.5rem;
-                        background:#f8f9fa;
-                        text-align:center;
-                        vertical-align:middle;
-                    ">
-                        PLACA
-                    </th>
-
-                    <td style="
-                        font-size:2.3rem;
-                        font-weight:bold;
-                        color:#0d6efd;
-                        text-align:center;
-                        letter-spacing:2px;
-                    ">
-                        ${datos.placa}
-                    </td>
-
-                </tr>
-
-                <tr>
-
-                    <th style="
-                        font-size:1.5rem;
-                        background:#f8f9fa;
-                        text-align:center;
-                        vertical-align:middle;
-                    ">
-                        ESTADO
-                    </th>
-
-                    <td class="text-center">
-
-                        <span class="badge bg-success"
-                              style="
-                                font-size:1.6rem;
-                                padding:14px 28px;
-                                border-radius:12px;
-                              ">
-
-                            ${datos.estado}
-
-                        </span>
-
-                    </td>
-
-                </tr>
-
-            </table>
-
-        </div>
-
-    </div>
-
-    `;
-
-} else {
-
-    resultado.innerHTML = `
-
-    <div class="alert alert-danger text-center fs-4">
-
-        <strong>
-            No existe información para la placa
-            ${placa}
-        </strong>
-
-    </div>
-
-    `;
-
-}
-
+        if (datos.encontrado) {
+            resultado.innerHTML = `
+                <div class="card shadow-lg border-success">
+                    <div class="card-header bg-success text-white text-center py-3">
+                        <h2 class="mb-0 fw-bold">🚗 INFORMACIÓN DEL VEHÍCULO</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover align-middle mb-0">
+                            <tr>
+                                <th style="width:40%; font-size:1.5rem; background:#f8f9fa; text-align:center; vertical-align:middle;">PLACA</th>
+                                <td style="font-size:2.3rem; font-weight:bold; color:#0d6efd; text-align:center; letter-spacing:2px;">${datos.placa}</td>
+                            </tr>
+                            <tr>
+                                <th style="font-size:1.5rem; background:#f8f9fa; text-align:center; vertical-align:middle;">ESTADO</th>
+                                <td class="text-center">
+                                    <span class="badge bg-success" style="font-size:1.6rem; padding:14px 28px; border-radius:12px;">${datos.estado}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>`;
+        } else {
+            resultado.innerHTML = `
+                <div class="alert alert-danger text-center fs-4">
+                    <strong>No existe información para la placa ${placa}</strong>
+                </div>`;
+        }
         resultado.style.display = "block";
 
-    }
-
-    catch (error) {
-
-        loader.style.display = "none";
-
-        resultado.innerHTML = `
-
-        <div class="alert alert-warning">
-
-            Error de conexión.<br><br>
-
-            ${error}
-
-        </div>
-
-        `;
-
+    } catch (error) {
+        if (loader) loader.style.display = "none";
+        resultado.innerHTML = `<div class="alert alert-warning">Error de conexión.<br><br>${error}</div>`;
         resultado.style.display = "block";
-
     }
-
 }
 
 //======================================================
-// CONSULTAR AL PRESIONAR ENTER
+// 2. CONSULTAR RADICADO
 //======================================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const txt = document.getElementById("placa");
-
-    if (txt) {
-
-        txt.addEventListener("keypress", function (e) {
-
-            if (e.key === "Enter") {
-
-                consultarPlaca();
-
-            }
-
-        });
-
-    }
-
-});
-
-//======================================================
-// LIMPIAR
-//======================================================
-
-function limpiarConsulta() {
-
-    document.getElementById("placa").value = "";
-
-    document.getElementById("resultado").style.display = "none";
-
-    document.getElementById("placa").focus();
-
-}
-
-//======================================================
-// MENSAJE DE BIENVENIDA
-//======================================================
-
-console.log("Portal Secretaría de Movilidad La Ceja");
-
-//======================================================
-// FECHA ACTUAL
-//======================================================
-
-window.onload = function () {
-
-    const fecha = document.getElementById("fecha");
-
-    if (fecha) {
-
-        const hoy = new Date();
-
-        fecha.innerHTML =
-            hoy.toLocaleDateString("es-CO", {
-
-                weekday: "long",
-
-                year: "numeric",
-
-                month: "long",
-
-                day: "numeric"
-
-            });
-
-    }
-
-};
-
-//======================================================
-// BOTÓN VOLVER ARRIBA
-//======================================================
-
-window.onscroll = function () {
-
-    let boton = document.getElementById("btnTop");
-
-    if (!boton) return;
-
-    if (document.documentElement.scrollTop > 300) {
-
-        boton.style.display = "block";
-
-    } else {
-
-        boton.style.display = "none";
-
-    }
-
-};
-
-function volverArriba() {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-}
 async function consultarRadicado() {
-
-    const placa = document
-        .getElementById("placaRadicado")
-        .value
-        .trim()
-        .toUpperCase();
-
+    const txtPlacaRadicado = document.getElementById("placaRadicado");
     const resultado = document.getElementById("resultadoRadicado");
 
+    if (!txtPlacaRadicado || !resultado) return;
+
+    const placa = txtPlacaRadicado.value.trim().toUpperCase();
+
     if (placa === "") {
-
-        resultado.innerHTML = `
-        <div class="alert alert-warning">
-            Ingrese una placa.
-        </div>`;
-
+        resultado.innerHTML = `<div class="alert alert-warning text-center">⚠️ Ingrese una placa para consultar.</div>`;
+        resultado.style.display = "block";
+        txtPlacaRadicado.focus();
         return;
     }
 
+    resultado.style.display = "block";
     resultado.innerHTML = `
-    <div class="text-center">
-
-        <div class="spinner-border text-success"></div>
-
-        <p class="mt-2">
-            Consultando...
-        </p>
-
-    </div>`;
+        <div class="text-center py-3">
+            <div class="spinner-border text-success" role="status"></div>
+            <p class="mt-2 text-muted">Consultando radicado, por favor espere...</p>
+        </div>`;
 
     try {
-
-        const respuesta = await fetch(
-            URL_RADICADOS + "?placa=" + encodeURIComponent(placa)
-        );
-
+        const respuesta = await fetch(`${URL_RADICADOS}?placa=${encodeURIComponent(placa)}&tipo=radicados`);
         const datos = await respuesta.json();
 
         if (datos.error) {
-
-            resultado.innerHTML = `
-            <div class="alert alert-danger">
-                ${datos.error}
-            </div>`;
-
+            resultado.innerHTML = `<div class="alert alert-danger text-center">❌ ${datos.error}</div>`;
             return;
         }
 
         if (!datos.encontrado) {
-
             resultado.innerHTML = `
-            <div class="alert alert-danger">
-
-                <i class="bi bi-x-circle-fill"></i>
-
-                No existen radicados para la placa <b>${placa}</b>
-
-            </div>`;
-
+                <div class="alert alert-warning text-center fs-5">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    No existen radicados registrados para la placa <b>${placa}</b>.
+                </div>`;
             return;
         }
 
         resultado.innerHTML = `
-
-        <div class="card border-success shadow">
-
-            <div class="card-header bg-success text-white">
-
-                <h5 class="mb-0">
-
-                    <i class="bi bi-folder-check"></i>
-
-                    Resultado de la Consulta
-
-                </h5>
-
-            </div>
-
-            <div class="card-body">
-
-                <table class="table table-bordered">
-
-                    <tr>
-                        <th width="180">Placa</th>
-                        <td>${datos.placa}</td>
-                    </tr>
-
-                    <tr>
-                        <th>Estado</th>
-                        <td>
-
-                            <span class="badge bg-success fs-6">
-
-                                ${datos.estado}
-
-                            </span>
-
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-        </div>`;
+            <div class="card border-success shadow">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-folder-check me-2"></i>Resultado de la Consulta</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered mb-0">
+                        <tr>
+                            <th width="180" class="bg-light">Placa</th>
+                            <td class="fs-5 fw-bold text-primary">${datos.placa}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Estado del Radicado</th>
+                            <td>
+                                <span class="badge bg-success fs-6 px-3 py-2">${datos.estado}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>`;
 
     } catch (error) {
+        console.error("Error en consulta de radicados:", error);
+        resultado.innerHTML = `<div class="alert alert-danger text-center">❌ Error al conectar con el servidor. Intente nuevamente.</div>`;
+    }
+}
 
-        console.error(error);
-
-        resultado.innerHTML = `
-        <div class="alert alert-danger">
-
-            Error al conectar con el servidor.
-
-        </div>`;
-
+//======================================================
+// 3. EVENTOS GLOBALES AL CARGAR LA PÁGINA
+//======================================================
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // A. Permitir consultar Vehículo al presionar ENTER
+    const txtVehiculo = document.getElementById("placa");
+    if (txtVehiculo) {
+        txtVehiculo.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                consultarPlaca();
+            }
+        });
     }
 
+    // B. Permitir consultar Radicado al presionar ENTER (NUEVO)
+    const txtRadicado = document.getElementById("placaRadicado");
+    if (txtRadicado) {
+        txtRadicado.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                consultarRadicado();
+            }
+        });
+    }
+
+    // C. Fecha actual en el footer
+    const fecha = document.getElementById("fecha");
+    if (fecha) {
+        const hoy = new Date();
+        fecha.textContent = hoy.toLocaleDateString("es-CO", {
+            weekday: "long", year: "numeric", month: "long", day: "numeric"
+        });
+    }
+});
+
+//======================================================
+// 4. FUNCIONES DE LIMPIEZA (Separadas para evitar errores)
+//======================================================
+function limpiarConsultaVehiculo() {
+    const txt = document.getElementById("placa");
+    const res = document.getElementById("resultado");
+    if (txt) { txt.value = ""; txt.focus(); }
+    if (res) { res.style.display = "none"; res.innerHTML = ""; }
+}
+
+function limpiarConsultaRadicado() {
+    const txt = document.getElementById("placaRadicado");
+    const res = document.getElementById("resultadoRadicado");
+    if (txt) { txt.value = ""; txt.focus(); }
+    if (res) { res.style.display = "none"; res.innerHTML = ""; }
+}
+
+//======================================================
+// 5. UTILIDADES (Scroll y Consola)
+//======================================================
+console.log("✅ Portal Secretaría de Movilidad La Ceja - Cargado correctamente");
+
+window.onscroll = function () {
+    const boton = document.getElementById("btnTop");
+    if (!boton) return;
+    boton.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+};
+
+function volverArriba() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
