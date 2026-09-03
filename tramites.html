@@ -2,228 +2,170 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trámites Motos y Carros - La Ceja</title>
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-    }
+<title>Trámites Motos y Carros</title>
 
-    .banner-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-    .banner-img {
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Estilo de Botón Pill Uniforme */
-    .btn-tramite {
-      background-color: #0d6efd;
-      color: #ffffff;
-      border: none;
-      border-radius: 30px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 75px; /* Altura uniforme para todos */
-      width: 100%;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
-      transition: all 0.3s ease;
-    }
-
-    .btn-tramite:hover {
-      background-color: #0b5ed7;
-      color: #ffffff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
-    }
-
-    /* Agrupadores visuales por categoría */
-    .categoria-card {
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid #e9ecef;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      height: 100%;
-    }
-
-    .categoria-titulo {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #495057;
-      text-transform: uppercase;
-      border-bottom: 2px solid #e9ecef;
-      padding-bottom: 8px;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    footer {
-      background-color: #ffffff;
-      border-top: 1px solid #dee2e6;
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- ENCABEZADO Y BANNER -->
-  <header class="container text-center my-4">
-    <div class="banner-container mb-3">
-      <img src="img/carros.jpg" class="img-fluid banner-img" alt="Trámites Motos y Carros - La Ceja">
+<header class="titulo py-3">
+    <h1>TRÁMITES MOTOS Y CARROS</h1>
+</header>
+
+<div class="container">
+
+    <!-- Imagen más pequeña -->
+    <div class="text-center mb-4">
+        <img src="img/carros.jpg" class="banner img-fluid" alt="Motos y carros">
     </div>
-  </header>
 
-  <!-- CONTENIDO PRINCIPAL: TRÁMITES EN GRID -->
-  <main class="container my-4">
-    <div class="row g-4 justify-content-center">
+    <div class="row g-3">
 
-      <!-- CATEGORÍA 1: MATRÍCULAS -->
-      <div class="col-lg-4 col-md-6">
-        <div class="categoria-card">
-          <div class="categoria-titulo">
-            <i class="bi bi-card-heading me-1"></i> Matrículas
-          </div>
-          <div class="d-grid gap-3">
-            <a href="https://drive.google.com/file/d/1VaelLjYKXOa03_EMnMmvcJVTymYG-pMN/view?usp=sharing" target="_blank" class="btn-tramite">
-              Matrícula Inicial
-            </a>
-            <a href="https://drive.google.com/file/d/1_gogGQkSLmbr0aSbSN3Dr-yW46TyrY2b/view?usp=sharing" target="_blank" class="btn-tramite">
-              Matrícula Inicial con Prenda
-            </a>
-          </div>
-        </div>
-      </div>
+        <!-- COLUMNA 1 -->
+   <div class="col-lg-2 col-md-4 col-sm-6">
 
-      <!-- CATEGORÍA 2: TRASPASOS Y PRENDAS -->
-      <div class="col-lg-4 col-md-6">
-        <div class="categoria-card">
-          <div class="categoria-titulo">
-            <i class="bi bi-arrow-left-right me-1"></i> Traspasos y Prendas
-          </div>
-          <div class="d-grid gap-3">
-            <a href="https://drive.google.com/file/d/1B3WdSwhY7BpeZmXd73Yf5hRc4H-atMlo/view?usp=sharing" target="_blank" class="btn-tramite">
-              Traspaso
-            </a>
-            <a href="https://drive.google.com/file/d/1Olygu3V-khSgUrHTnzCYbAPCKT4LzNlW/view?usp=sharing" target="_blank" class="btn-tramite">
-              Traspaso + Inscripción de Prenda
-            </a>
-            <a href="https://drive.google.com/file/d/1ZeMl6GkEsjUg6HJWyK6FPH_vk8RSQJpA/view?usp=sharing" target="_blank" class="btn-tramite">
-              Traspaso + Levantamiento de Prenda
-            </a>
-            <a href="https://drive.google.com/file/d/1ZH1a3VRqmc_HWc7VuIZCOeaNBbh0BLqf/view?usp=sharing" target="_blank" class="btn-tramite">
-              Levantamiento de Prenda
-            </a>
-            <a href="https://drive.google.com/file/d/1zmHNFyrxnS8bPQJYRtOwoI0U9pGr89c4/view?usp=sharing" target="_blank" class="btn-tramite">
-              Traspaso a Favor del Interesado
-            </a>
-          </div>
-        </div>
-      </div>
+    <a href="https://drive.google.com/file/d/1VaelLjYKXOa03_EMnMmvcJVTymYG-pMN/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        MATRÍCULA INICIAL
+    </a>
 
-      <!-- CATEGORÍA 3: CUENTAS Y PLACAS -->
-      <div class="col-lg-4 col-md-6">
-        <div class="categoria-card">
-          <div class="categoria-titulo">
-            <i class="bi bi-folder-symlink me-1"></i> Cuentas y Duplicados
-          </div>
-          <div class="d-grid gap-3">
-            <a href="https://drive.google.com/file/d/13azT2dkMuYDp_o9Vq4k_Qt2JSQo9Yco0/view?usp=sharing" target="_blank" class="btn-tramite">
-              Radicación Cuenta
-            </a>
-            <a href="https://drive.google.com/file/d/1bTKL2zgype9x1-nckIzliwajCNhio2Hk/view?usp=sharing" target="_blank" class="btn-tramite">
-              Traslado de Cuenta
-            </a>
-            <a href="https://drive.google.com/file/d/18CtkeDihTEukU3neIk7gS2CbBSTB3DVc/view?usp=sharing" target="_blank" class="btn-tramite">
-              Duplicado Licencia Tránsito
-            </a>
-            <a href="https://drive.google.com/file/d/1lHGUrf6Vq21iv0oEFjBZVrRl6uH_Uxvk/view?usp=sharing" target="_blank" class="btn-tramite">
-              Duplicado de Placas
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORÍA 4: MODIFICACIONES TÉCNICAS -->
-      <div class="col-lg-4 col-md-6">
-        <div class="categoria-card">
-          <div class="categoria-titulo">
-            <i class="bi bi-tools me-1"></i> Cambios y Regrabaciones
-          </div>
-          <div class="d-grid gap-3">
-            <a href="https://drive.google.com/file/d/1pMkSeR7JXRj-CF4qkKk2unFEjzkjtTDu/view?usp=sharing" target="_blank" class="btn-tramite">
-              Cambio Carrocería (Nueva o Usada)
-            </a>
-            <a href="https://drive.google.com/file/d/11EIXx8GfViUfPtTBPW9IUmoPExCJEDI5/view?usp=sharing" target="_blank" class="btn-tramite">
-              Cambio de Motor Nuevo
-            </a>
-            <a href="https://drive.google.com/file/d/1QDCSCloNRPoisPkgG96EaVGiK5ECMJ5a/view?usp=sharing" target="_blank" class="btn-tramite">
-              Cambio de Color
-            </a>
-            <a href="https://drive.google.com/file/d/1fAp-DrwhJoNgNoPHPqIRyPUr7VfhbYor/view?usp=sharing" target="_blank" class="btn-tramite">
-              Regrabación Chasis, Serie, Motor y VIN
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORÍA 5: CANCELACIONES Y OTROS -->
-      <div class="col-lg-4 col-md-6">
-        <div class="categoria-card">
-          <div class="categoria-titulo">
-            <i class="bi bi-x-circle me-1"></i> Cancelaciones y Rematrícula
-          </div>
-          <div class="d-grid gap-3">
-            <a href="https://drive.google.com/file/d/1LagfwOjnvZDnZ81wCTpPRHwF9_2hJnxd/view?usp=sharing" target="_blank" class="btn-tramite">
-              Cancelación Desintegración Pérdida Total
-            </a>
-            <a href="https://drive.google.com/file/d/1SU9Gc9cBe5p0hpInSKdv-whTidpztre2/view?usp=sharing" target="_blank" class="btn-tramite">
-              Cancelación por Hurto
-            </a>
-            <a href="https://drive.google.com/file/d/1Y9IvfxmAwy0JgNejv_o30PyjcvA9iDGT/view?usp=sharing" target="_blank" class="btn-tramite">
-              Rematricular
-            </a>
-          </div>
-        </div>
-      </div>
+    <a href="https://drive.google.com/file/d/1_gogGQkSLmbr0aSbSN3Dr-yW46TyrY2b/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        MATRÍCULA INICIAL CON PRENDA
+    </a>
 
     </div>
-  </main>
 
-  <!-- PIE DE PÁGINA CENTRADO -->
-  <footer class="text-center py-4 mt-5">
-    <div class="container">
-      <h5 class="fw-bold mb-1">Secretaría de Movilidad La Ceja</h5>
-      <p class="text-muted mb-2">Sistema de Información y Consulta Vehicular</p>
-      <hr class="w-50 mx-auto my-3">
-      <small class="text-muted">© 2026 - Todos los derechos reservados V.6</small>
+
+ <!-- COLUMNA 2 -->
+   <div class="col-lg-2 col-md-4 col-sm-6">
+
+    <a href="https://drive.google.com/file/d/1B3WdSwhY7BpeZmXd73Yf5hRc4H-atMlo/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        TRASPASO
+    </a>
+
+    <a href="https://drive.google.com/file/d/1Olygu3V-khSgUrHTnzCYbAPCKT4LzNlW/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        TRASPASO MÁS INSCRIPCIÓN DE PRENDA
+    </a>
+        <a href="https://drive.google.com/file/d/1ZeMl6GkEsjUg6HJWyK6FPH_vk8RSQJpA/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        TRASPASO MÁS LEVANTAMIENTO DE PRENDA
+    </a>
+ <a href="https://drive.google.com/file/d/1ZH1a3VRqmc_HWc7VuIZCOeaNBbh0BLqf/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        LEVANTAMIENTO DE PRENDA
+    </a>
     </div>
-  </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- COLUMNA 3 -->
+        
+<div class="col-lg-2 col-md-4 col-sm-6">
+
+    <a href="https://drive.google.com/file/d/13azT2dkMuYDp_o9Vq4k_Qt2JSQo9Yco0/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        RADICACIÓN CUENTA
+    </a>
+
+    <a href="https://drive.google.com/file/d/1bTKL2zgype9x1-nckIzliwajCNhio2Hk/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        TRASLADO DE CUENTA
+    </a>
+      
+    </div>
+
+     <!-- COLUMNA 4 -->
+
+  <div class="col-lg-2 col-md-4 col-sm-6">
+
+    <a href="https://drive.google.com/file/d/1pMkSeR7JXRj-CF4qkKk2unFEjzkjtTDu/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        CAMBIO CARROCERÍA NUEVA O USADA
+    </a>
+
+    <a href="https://drive.google.com/file/d/11EIXx8GfViUfPtTBPW9IUmoPExCJEDI5/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        CAMBIO DE MOTOR NUEVO
+    </a>
+        <a href="https://drive.google.com/file/d/1QDCSCloNRPoisPkgG96EaVGiK5ECMJ5a/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        CAMBIO DE COLOR
+    </a>
+ <a href="https://drive.google.com/file/d/1fAp-DrwhJoNgNoPHPqIRyPUr7VfhbYor/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        REGRABACIÓN CHASIS, SERIE, MOTOR Y VIN
+    </a>
+    </div>
+        
+  <!-- COLUMNA 5 -->
+<div class="col-lg-2 col-md-4 col-sm-6">
+
+    <a href="https://drive.google.com/file/d/18CtkeDihTEukU3neIk7gS2CbBSTB3DVc/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        DUPLICADO LICENCIA TRÁNSITO
+    </a>
+
+    <a href="https://drive.google.com/file/d/1lHGUrf6Vq21iv0oEFjBZVrRl6uH_Uxvk/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        DUPLICADO DE PLACAS
+    </a>
+      
+    </div>
+
+
+         <!-- COLUMNA 6 -->
+
+  <div class="col-lg-2 col-md-4 col-sm-6">
+
+    <a href="https://drive.google.com/file/d/1LagfwOjnvZDnZ81wCTpPRHwF9_2hJnxd/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        CANCELACIÓN DESINTEGRACIÓN PÉRDIDA TOTAL
+    </a>
+
+    <a href="https://drive.google.com/file/d/1SU9Gc9cBe5p0hpInSKdv-whTidpztre2/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        CANCELACIÓN POR HURTO
+    </a>
+        <a href="https://drive.google.com/file/d/1Y9IvfxmAwy0JgNejv_o30PyjcvA9iDGT/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+         REMATRÍCULAR
+    </a>
+ <a href="https://drive.google.com/file/d/1zmHNFyrxnS8bPQJYRtOwoI0U9pGr89c4/view?usp=sharing"
+       target="_blank"
+       class="btn btn-primary tramite-btn">
+        TRASPASO A FAVOR DEL INTERESADO
+    </a>
+    </div>
+
+        </div>
+
+</div>
+
 </body>
-
 </html>
