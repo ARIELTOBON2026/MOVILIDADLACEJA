@@ -1,196 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secretaría de Movilidad - La Ceja</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<title>Secretaría de Movilidad La Ceja</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    /* Encabezado Principal */
+    .header-banner {
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      padding: 2.5rem 1rem;
+      border-bottom: 5px solid #ffc107;
+    }
 
-<link rel="stylesheet" href="style.css">
+    /* Tarjetas del Portal */
+    .main-card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+    }
 
+    .nav-pills .nav-link {
+      font-weight: 600;
+      color: #495057;
+      border-radius: 10px;
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: #0d6efd;
+      color: white;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    }
+
+    /* Input Estilizado */
+    .input-placa {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      border: 2px solid #ced4da;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .input-placa:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    /* Estilo de Placa Vehicular */
+    .badge-placa {
+      background-color: #ffda44;
+      color: #000000;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      padding: 8px 24px;
+      border-radius: 8px;
+      border: 3px solid #000000;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background-color: #212529;
+      color: #adb5bd;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-
-<h1>SECRETARÍA DE MOVILIDAD LA CEJA</h1>
-
-<p>Servicios y Trámites para la Ciudadanía</p>
-
-</header>
-
-<div class="container mt-5">
-
-<div class="row g-4">
-
-<!-- CARROS -->
-
-<div class="col-md-4">
-
-<div class="card h-100">
-
-<img src="img/tramites.jpg" class="card-img-top" alt="Carros y Motos">
-
-<div class="card-body">
-
-<h4 class="card-title">🚗 CARROS Y MOTOS</h4>
-
-<a href="tramites.html" class="btn btn-primary w-100">
-
-Ingresar
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- LICENCIA -->
-
-<div class="col-md-4">
-
-<div class="card h-100">
-
-<img src="img/licencia.jpg" class="card-img-top" alt="Licencia de conducción">
-
-<div class="card-body">
-
-<h4 class="card-title">🪪 LICENCIA DE CONDUCCIÓN</h4>
-
-<a href="licencia.html" class="btn btn-success w-100">
-
-Ingresar
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- OTROS -->
-
-<div class="col-md-4">
-
-<div class="card h-100">
-
-<img src="img/otros.jpg" class="card-img-top" alt="Otros Trámites">
-
-<div class="card-body">
-
-<h4 class="card-title">📋 OTROS TRÁMITES</h4>
-
-<a href="https://drive.google.com/file/d/1l8A5gVr0gY39-_le9hPTudq5FZgaMMfN/view?usp=sharing" class="btn btn-dark w-100">
-     
-   Ingresar
-    </a>
-  
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RADICADOS -->
-
-<div class="col-md-4">
-
-<div class="card h-100">
-
-<img src="img/radicados.jpg" class="card-img-top" alt="Radicados">
-
-<div class="card-body">
-
-<h4 class="card-title">📂 RADICADOS</h4>
-
-<a href="radicados.html" class="btn btn-secondary w-100">
-
-Ingresar
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CONSULTA -->
-
-<div class="col-md-4">
-
-<div class="card h-100">
-
-<img src="img/placa.jpg" class="card-img-top" alt="Consulta de placas">
-
-<div class="card-body">
-
-<h4 class="card-title">🔍 CONSULTA DE PLACAS</h4>
-
-<a href="consulta.html" class="btn btn-danger w-100">
-
-Consultar
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- DESCARGAS -->
-
-<div class="col-md-4">
-
-    <div class="card h-100 shadow">
-
-        <img src="img/descargaspdf.jpg"
-             class="card-img-top img-card"
-             alt="Descargas">
-
-        <div class="card-body text-center">
-
-            <h4 class="card-title">⬇️ DESCARGAS</h4>
-
-            <a href="descargas.html"
-               class="btn btn-info w-100 text-white">
-
-                Descargar
-
-            </a>
+  <!-- ENCABEZADO -->
+  <header class="header-banner text-center shadow">
+    <div class="container">
+      <h1 class="fw-bold mb-1"><i class="bi bi-shield-check me-2"></i>Secretaría de Movilidad</h1>
+      <p class="mb-0 fs-5 opacity-75">Municipio de La Ceja - Antioquia</p>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        
+        <div class="card main-card p-4">
+          
+          <!-- PESTAÑAS DE NAVEGACIÓN -->
+          <ul class="nav nav-pills nav-justified mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-vehiculo-tab" data-bs-toggle="pill" data-bs-target="#pills-vehiculo" type="button" role="tab">
+                <i class="bi bi-car-front-fill me-2"></i>Consultar Vehículo
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-radicado-tab" data-bs-toggle="pill" data-bs-target="#pills-radicado" type="button" role="tab">
+                <i class="bi bi-file-earmark-text-fill me-2"></i>Consultar Radicado
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pills-tabContent">
+            
+            <!-- SECCIÓN 1: CONSULTA DE VEHÍCULO -->
+            <div class="tab-pane fade show active" id="pills-vehiculo" role="tabpanel">
+              <div class="text-center mb-4">
+                <label for="placa" class="form-label fw-bold text-secondary">INGRESE LA PLACA DEL VEHÍCULO</label>
+                <input type="text" id="placa" class="form-control input-placa mx-auto style-input" placeholder="AAA123" maxlength="6" style="max-width: 320px;">
+              </div>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4">
+                <button class="btn btn-primary btn-lg px-4 fw-bold rounded-pill shadow-sm" onclick="consultarPlaca()">
+                  <i class="bi bi-search me-2"></i>Consultar
+                </button>
+                <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" onclick="limpiarConsultaVehiculo()">
+                  <i class="bi bi-arrow-counterclockwise me-2"></i>Limpiar
+                </button>
+              </div>
+
+              <!-- LOADER -->
+              <div id="loader" class="text-center my-4" style="display: none;">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted fw-semibold">Consultando base de datos...</p>
+              </div>
+
+              <!-- CONTENEDOR DE RESULTADO -->
+              <div id="resultado" style="display: none;"></div>
+            </div>
+
+            <!-- SECCIÓN 2: CONSULTA DE RADICADOS -->
+            <div class="tab-pane fade" id="pills-radicado" role="tabpanel">
+              <div class="text-center mb-4">
+                <label for="placaRadicado" class="form-label fw-bold text-secondary">INGRESE LA PLACA PARA VER RADICADOS</label>
+                <input type="text" id="placaRadicado" class="form-control input-placa mx-auto style-input" placeholder="AAA123" maxlength="6" style="max-width: 320px;">
+              </div>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4">
+                <button class="btn btn-success btn-lg px-4 fw-bold rounded-pill shadow-sm" onclick="consultarRadicado()">
+                  <i class="bi bi-search me-2"></i>Buscar Radicado
+                </button>
+                <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" onclick="limpiarConsultaRadicado()">
+                  <i class="bi bi-arrow-counterclockwise me-2"></i>Limpiar
+                </button>
+              </div>
+
+              <!-- CONTENEDOR DE RESULTADO RADICADO -->
+              <div id="resultadoRadicado" style="display: none;"></div>
+            </div>
+
+          </div>
 
         </div>
 
+      </div>
     </div>
+  </main>
 
-</div>
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <button id="btnTop" class="btn btn-primary rounded-circle shadow" onclick="volverArriba()" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; width: 50px; height: 50px;">
+    <i class="bi bi-arrow-up fs-5"></i>
+  </button>
 
-<h5>Secretaría de Movilidad La Ceja</h5>
+  <!-- FOOTER -->
+  <footer class="py-3 text-center border-top">
+    <div class="container">
+      <small>© Portal de Servicios - Alcaldía de La Ceja del Tambo</small><br>
+      <small id="fecha" class="text-muted"></small>
+    </div>
+  </footer>
 
-<hr>
-
-<p>Sistema de Información y Consulta Vehicular</p>
-
-<p>© 2026 - Todos los derechos reservados V.6</p>
-
-</div>
-
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="script.js"></script>
+  <!-- JS Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tu script actual -->
+  <script src="script.js?v=3"></script>
 
 </body>
-
 </html>
