@@ -9,7 +9,7 @@
 // ⚠️ IMPORTANTE: Actualizar esta URL cada vez que se 
 // implemente una "Nueva versión" en Google Apps Script.
 // ======================================================
-const URL_BASE = "https://script.google.com/macros/s/AKfycbwPJ8-dB1q7q93e9hBAgNH43Bm1F5qJOraRZt0v4WyU3LDIfQjJT2osI39ry0DYscRl/exec";
+const URL_BASE = "https://script.google.com/macros/s/AKfycbwPvqDAAlIodav0Vc0_fQ6c90LiD9DB3q76_KZ6-HMOF7D1rreMlmJzH-xKkIayoxzW/exec";
 
 
 // ======================================================
