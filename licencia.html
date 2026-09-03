@@ -2,116 +2,169 @@
 <html lang="es">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Licencias de Conducción - La Ceja</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <title>Licencias de Conducción</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+    }
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    /* Encabezado con degradado azul institucional */
+    header.titulo {
+      background: linear-gradient(135deg, #0b3c5d 0%, #1d2731 100%);
+      color: #ffffff;
+      border-bottom: 4px solid #3282b8;
+    }
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    .banner {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="style.css">
+    /* Estilo general para los botones */
+    .tramite-btn {
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
 
+    .tramite-btn:hover {
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Variación de colores para los botones */
+    .btn-expedicion {
+      background-color: #0b3c5d; /* Azul Profundo */
+    }
+    .btn-expedicion:hover {
+      background-color: #082d47;
+    }
+
+    .btn-refrendacion {
+      background-color: #198754; /* Verde Institucional */
+    }
+    .btn-refrendacion:hover {
+      background-color: #146c43;
+    }
+
+    .btn-duplicado {
+      background-color: #0dcaf0; /* Azul Celeste */
+      color: #000;
+    }
+    .btn-duplicado:hover {
+      background-color: #31d2f2;
+      color: #000;
+    }
+
+    .btn-cambio-doc {
+      background-color: #6f42c1; /* Púrpura */
+    }
+    .btn-cambio-doc:hover {
+      background-color: #593196;
+    }
+
+    footer {
+      background-color: #0b3c5d;
+      color: #ffffff;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- ENCABEZADO -->
+  <!-- ENCABEZADO CON BOTÓN INICIO -->
+  <header class="titulo py-4">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <a href="index.html" class="btn btn-outline-light rounded-pill px-4 fw-bold shadow-sm">
+          <i class="bi bi-house-door-fill me-2"></i>INICIO
+        </a>
+        <span class="fw-bold text-light opacity-75 d-none d-sm-inline">SECRETARÍA DE MOVILIDAD</span>
+      </div>
 
-    <header class="titulo text-center py-4">
+      <h1 class="fw-bold mb-1">TRÁMITES LICENCIA DE CONDUCCIÓN</h1>
+      <p class="lead mb-0 text-white-50">
+        Secretaría de Movilidad La Ceja del Tambo
+      </p>
+    </div>
+  </header>
 
-        <h1>TRÁMITES LICENCIA DE CONDUCCIÓN</h1>
-
-        <p class="lead text-white">
-            Secretaría de Movilidad La Ceja
-        </p>
-
-     </header>
-
-    <div class="container py-4">
-
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container py-5">
     <div class="row align-items-center g-4">
 
-      <div class="row align-items-center g-4">
+      <!-- IMAGEN -->
+      <div class="col-lg-6 text-center">
+        <img src="img/conductor.jpg" class="img-fluid banner shadow-lg" alt="Licencia de conducción">
+      </div>
 
-    <!-- IMAGEN -->
-    <div class="col-lg-6 text-center">
-
-        <img src="img/conductor.jpg"
-             class="img-fluid banner rounded shadow"
-             alt="Licencia de conducción">
-
-    </div>
-
-    <!-- BOTONES -->
-    <div class="col-lg-6">
-
+      <!-- BOTONES CON NUEVA PALETA DE COLORES -->
+      <div class="col-lg-6">
         <a href="https://drive.google.com/file/d/19k5nYh4Jqa2Z_EqaSXICZ7Ae_oRfVzEk/view?usp=sharing"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary tramite-btn mb-3">
-
-            <i class="bi bi-file-earmark-text-fill me-2"></i>
-            EXPEDICIÓN INICIAL LICENCIA DE CONDUCCIÓN
-
+           target="_blank" rel="noopener noreferrer" class="tramite-btn btn-expedicion mb-3">
+          <i class="bi bi-file-earmark-text-fill fs-5 me-3"></i>
+          <span>EXPEDICIÓN INICIAL LICENCIA DE CONDUCCIÓN</span>
         </a>
 
         <a href="https://drive.google.com/file/d/1SSey9mblSQMkYnabRCJ6_CkUt8y_6icz/view?usp=sharing"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary tramite-btn mb-3">
-
-            <i class="bi bi-arrow-repeat me-2"></i>
-            REFRENDACIÓN LICENCIA DE CONDUCCIÓN
-
+           target="_blank" rel="noopener noreferrer" class="tramite-btn btn-refrendacion mb-3">
+          <i class="bi bi-arrow-repeat fs-5 me-3"></i>
+          <span>REFRENDACIÓN LICENCIA DE CONDUCCIÓN</span>
         </a>
 
         <a href="https://drive.google.com/file/d/1z4jZEGOr8tG586aAG-gcWi9yoSQjfnBs/view?usp=sharing"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary tramite-btn mb-3">
-
-            <i class="bi bi-files me-2"></i>
-            DUPLICADO LICENCIA DE CONDUCCIÓN
-
+           target="_blank" rel="noopener noreferrer" class="tramite-btn btn-duplicado mb-3">
+          <i class="bi bi-files fs-5 me-3"></i>
+          <span>DUPLICADO LICENCIA DE CONDUCCIÓN</span>
         </a>
 
         <a href="https://drive.google.com/file/d/1RmU08k7RXWBc_i5OwjccVnjFBrqIIZ4w/view?usp=sharing"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary tramite-btn">
-
-            <i class="bi bi-person-vcard-fill me-2"></i>
-            CAMBIO DE DOCUMENTO (TI A CÉDULA DE CIUDADANÍA)
-
+           target="_blank" rel="noopener noreferrer" class="tramite-btn btn-cambio-doc">
+          <i class="bi bi-person-vcard-fill fs-5 me-3"></i>
+          <span>CAMBIO DE DOCUMENTO (TI A CÉDULA)</span>
         </a>
+      </div>
 
     </div>
+  </main>
 
-</div>
-
-    <!-- PIE DE PÁGINA -->
-<footer class="bg-primary text-white py-4">
-
+  <!-- PIE DE PÁGINA -->
+  <footer class="py-4 mt-auto">
     <div class="container text-center">
+      <p class="mb-0 opacity-75">
+        © 2026 Secretaría de Movilidad La Ceja del Tambo — Todos los derechos reservados
+      </p>
+    </div>
+  </footer>
 
-        <a href="index.html" class="btn btn-light btn-lg mb-3">
-            <i class="bi bi-house-door-fill"></i>
-            Inicio
-        </a>
-
-        <p class="mb-0">
-        © 2026 Secretaría de Movilidad La Ceja del Tambo
-
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
