@@ -1,6 +1,6 @@
 //======================================================
 // SECRETARÍA DE MOVILIDAD LA CEJA
-// script.js (Versión Corregida)
+// script.js (Versión Final Corregida)
 //======================================================
 
 // URL ÚNICA del Web App de Google Apps Script
@@ -14,10 +14,7 @@ async function consultarPlaca() {
     const resultado = document.getElementById("resultado");
     const loader = document.getElementById("loader");
 
-    if (!txtPlaca || !resultado) {
-        console.error("Elementos no encontrados. ¿Estás en consulta.html?");
-        return;
-    }
+    if (!txtPlaca || !resultado) return;
 
     let placa = txtPlaca.value.trim().toUpperCase();
 
@@ -86,10 +83,7 @@ async function consultarRadicado() {
     const txtPlacaRadicado = document.getElementById("placaRadicado");
     const resultado = document.getElementById("resultadoRadicado");
 
-    if (!txtPlacaRadicado || !resultado) {
-        console.error("Elementos no encontrados. ¿Estás en radicados.html?");
-        return;
-    }
+    if (!txtPlacaRadicado || !resultado) return;
 
     const placa = txtPlacaRadicado.value.trim().toUpperCase();
 
@@ -157,8 +151,6 @@ async function consultarRadicado() {
 // 3. EVENTOS GLOBALES
 //======================================================
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // A. Consultar Vehículo con ENTER
     const txtVehiculo = document.getElementById("placa");
     if (txtVehiculo) {
         txtVehiculo.addEventListener("keydown", (e) => {
@@ -169,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // B. Consultar Radicado con ENTER
     const txtRadicado = document.getElementById("placaRadicado");
     if (txtRadicado) {
         txtRadicado.addEventListener("keydown", (e) => {
@@ -180,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // C. Fecha actual
     const fecha = document.getElementById("fecha");
     if (fecha) {
         const hoy = new Date();
